@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if v-for</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<div id="app">
+			<p v-if="seen">如果是true则可以显示</p>
+			<ul>
+				<li v-for="item in list">
+					{{item}}
+				</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			var app = new Vue({
+				el:'#app',
+				data:{
+					seen:false,
+					list:[
+						"item A",
+						"item B",
+						"item C"
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
