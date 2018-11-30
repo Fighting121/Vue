@@ -36,6 +36,11 @@
         <div style="padding: 20px; background-color: blue">
             <button @click.once="bbb">按钮2</button>
         </div>
+
+        <!--按键修饰符-->
+        <div>
+            <input type="text" @keyup.enter="submit">
+        </div>
     </div>
 </body>
 <script type="text/javascript">
@@ -57,6 +62,9 @@
             },
             ccc(){
                 alert("ccc")
+            },
+            submit(){
+                alert("提交")
             }
         }
     })
