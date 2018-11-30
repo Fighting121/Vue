@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(p, key, index) in person">序号:{{index}}---{{key}}:{{p}}</p>
+        <hr>
+        <span v-for="n in 10">{{n}}</span>
+        <hr>
+        <!--事件修饰符-->
+        <!--阻止单击事件冒泡-->
+        <div @click="aaa">
+            <button @click.stop="aaa">阻止冒泡</button>
+        </div>
+
+        <!--阻止默认行为-->
+        <div>
+            <a href="https:www.baidu.com" target="_blank" @click.prevent="aaa">阻止默认</a>
+        </div>
+
+        <!--添加事件监听器时使用事件捕获模式-->
+        <div @click.capture="bbb">
+            <button @click.stop="aaa">事件捕获</button>
+        </div>
+
+        <!--只有当事件在该元素本身(比如不是子元素)触发时触发回调-->
+        <div @click.self="aaa" style="border: 1px solid red; padding: 20px;">
+            <button>self测试</button>
+        </div>
+
+        <!--点击事件将只会触发一次-->
+        <div style="padding: 20px; background-color: blue">
+            <button @click.once="bbb">按钮2</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var v = new Vue({
+        el:"#app",
+        data:{
+            person:{
+                name:"张三",
+                sex:"男",
+                age:18
+            }
+        },
+        methods:{
+            aaa() {
+                alert("aaa")
+            },
+            bbb(){
+                alert("bbb")
+            },
+            ccc(){
+                alert("ccc")
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+        <ul>
+           <li v-for="(item, index) in items">
+               {{index}}:{{item}}
+           </li>
+        </ul>
+        <hr>
+        <p v-if="seen">看到我了</p>
+        <p v-show="seen">是我了</p>
+        <p v-for="p in person">{{p}}</p>
+        <div>
+            <p>{{message}}</p>
+            <div v-once>只描绘一次:{{message}}</div>
+            <button @click="reverse">反转message</button>
+         </div>
+        <div>{{htmlMsg}}</div>
+        <div v-html="htmlMsg"></div>
+        <button v-bind:disabled="flag">按钮</button>
+</div>
+</body>
+
+<script type="text/javascript">
+    var v = new Vue({
+        el:"#app",
+        data: {
+            message:"Hello World!",
+            items:[1, 2, 3, 4, 5],
+            seen:false,
+            person:{
+                name:"张三",
+                sex:"男",
+                age:18
+            },
+            htmlMsg:"<h1>我是新来的, 请多多关照!</h1><input type='text'>",
+            flag:false
+        },
+        methods:{
+            reverse(){
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    })
+</script>
+</html>

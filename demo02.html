@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>加法的结果:{{x + y}}</p>
+        <p>{{isMan ? "男生" : "女生"}}</p>
+        <p v-if="level == 1">这是管理员</p>
+        <p v-else-if="level == 2">这是普通用户</p>
+        <p v-else>对不起, 您没有权限</p>
+    </div>
+
+    <script type="text/javascript">
+        var v = new Vue({
+            el:"#app",
+            data:{
+                x:12,
+                y:13,
+                isMan:false,
+                level:1
+            }
+        })
+    </script>
+</body>
+</html>
